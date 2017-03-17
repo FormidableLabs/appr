@@ -1,0 +1,19 @@
+{
+  "name": "appr",
+  "version": "0.0.1",
+  "description": "Pull Request Review Apps for create-react-native-app / Expo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/appr.git"
+  },
+  "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/appr/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/appr#readme"
+}
