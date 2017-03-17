@@ -1,6 +1,6 @@
 {
   "name": "appr",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
