@@ -11,7 +11,7 @@
     "url": "git+https://github.com/FormidableLabs/appr.git"
   },
   "bin": {
-    "expr": "./index.sh"
+    "appr": "./index.js"
   },
   "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
   "license": "MIT",
