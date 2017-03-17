@@ -4,11 +4,14 @@
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src/"
+    "test": "eslint scripts/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FormidableLabs/appr.git"
+  },
+  "bin": {
+    "expr": "./index.sh"
   },
   "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
   "license": "MIT",
@@ -18,6 +21,7 @@
   "homepage": "https://github.com/FormidableLabs/appr#readme",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "dotenv": "^4.0.0",
     "eslint": "^3.17.1",
     "eslint-config-formidable": "^2.0.1",
     "eslint-plugin-babel": "^4.1.1",

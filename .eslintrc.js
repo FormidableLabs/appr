@@ -23,6 +23,7 @@ module.exports = {
     'no-magic-numbers': 'off',
     'no-invalid-this': 'off',
     'no-unused-expressions': 'off',
+    'no-console': 'off',
     quotes: ['error', 'single', { avoidEscape: true }],
     indent: [
       'error',
