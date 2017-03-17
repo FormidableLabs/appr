@@ -5,9 +5,9 @@ const config = require('./scripts/config');
 const log = require('./scripts/log');
 const preDeploy = require('./scripts/pre-deploy');
 const postDeploy = require('./scripts/post-deploy');
-
+const localExp = './node_modules/exp/bin/exp.js';
 log('Logging into Expo...');
-spawn('exp', ['login', '-u', config.expUsername, '-p', config.expPassword], loginError => {
+spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword], loginError => {
   if (loginError) {
     throw new Error('Failed to log into Expo');
   } else {
@@ -17,7 +17,7 @@ spawn('exp', ['login', '-u', config.expUsername, '-p', config.expPassword], logi
   }
 
   log('Publishing project into Expo.');
-  spawn('exp', ['publish'], publishError => {
+  spawn(localExp, ['publish'], publishError => {
     if (publishError) {
       throw new Error('Failed to publish package to Expo');
     } else {

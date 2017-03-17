@@ -11,7 +11,14 @@ const config = {
 
 for (const key in config) {
   const value = config[key];
-  if (typeof value === 'undefined' && value === null && value !== '' && value === 'false') {
+  // shell envs are werid
+  if (
+    typeof value === 'undefined' ||
+    value === 'undefined' ||
+    value === null ||
+    value === '' ||
+    value === 'false'
+  ) {
     throw new Error(`Missing configuration key ${key}`);
   }
 }
