@@ -4,7 +4,7 @@
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint src/"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/FormidableLabs/appr/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/appr#readme"
+  "homepage": "https://github.com/FormidableLabs/appr#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.17.1",
+    "eslint-config-formidable": "^2.0.1",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-filenames": "^1.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "exp": "^36.0.0",
+    "request": "^2.81.0"
+  }
 }
