@@ -8,7 +8,7 @@
 - **appr** - Portmanteaux of *app* and *PR*.
 - **appr** - Throwback to Web 2.0, when everything was bettr
 
-**appr** builds your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
+**appr builds and deploys pull requests** in your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
 
 ## What are "Review Apps"?
 
