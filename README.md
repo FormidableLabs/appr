@@ -1,7 +1,8 @@
 # appr
 
-## Etymology
-## ɛtɪˈmɒlədʒi
+## Etymology /ɛtɪˈmɒlədʒi/
+
+### appr /ˈdapə/
 *noun*
 - **appr** - Pull Request Review Apps for React Native
 - **appr** - Portmanteaux of *app* and *PR*.
@@ -15,11 +16,11 @@ Mature technical organizations peer-review their code. Reviewing code on GitHub 
 
 Testing another developer's changes isn't quite as easy. Typically, you will have to stash any work in progress in your own workspace, pull down the remote branch, install dependencies, compile and start the application before you can verify that the changes work as intended.
 
-Since it was launched, I've loved Heroku's GitHub-integrated [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps). As part of your branch build, Heroku will spin up a new review instance of your application, which you can then access with a direct link from your GitHub pull request. [Netlify](https://www.netlify.com/) offers the same functionality for deploying static frontend sites.
+Since it was launched, I've loved Heroku's GitHub-integrated [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps). As part of your branch build, Heroku will spin up a new review instance of your application, which you can then access with a direct link from your GitHub pull request. [Netlify](https://www.netlify.com/) offers the same functionality for deploying static websites.
 
 Unfortunately, a one-click workflow like this doesn't exist for mobile development. To add insult to injury, the ramp-up time to test mobile app changes on your local device can be much longer than for web applications.
 
-Enter **appr**.
+Enter **appr**. Built on [Expo](expo.io) and inspired by [Expo Sketch](sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites
 
 ## Getting started
 
@@ -46,7 +47,7 @@ Next, configure one of the currently supported CI environments:
 [Contributions](#contributing) for other CI platforms welcome.
 
 ## Limitations
-There are a few limitations you should be aware of. **appr** is not able to deploy:
+There are a few limitations you should be aware of. **appr** is currently not able to deploy:
 
 1. React Native apps started with something other than create-react-native-app or Expo.
 2. Ejected React Native apps containing custom native module dependencies.
