@@ -2,7 +2,7 @@
 
 ## Etymology /ɛtɪˈmɒlədʒi/
 
-### appr /ˈdapə/
+### appr /ˈapə/
 *noun*
 - **appr** - Pull Request Review Apps for React Native
 - **appr** - Portmanteaux of *app* and *PR*.
