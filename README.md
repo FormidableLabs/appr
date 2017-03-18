@@ -20,7 +20,7 @@ Since it was launched, I've loved Heroku's GitHub-integrated [Review Apps](https
 
 Unfortunately, a one-click workflow like this doesn't exist for mobile development. To add insult to injury, the ramp-up time to test mobile app changes on your local device can be much longer than for web applications.
 
-Enter **appr**. Built on [Expo](expo.io) and inspired by [Expo Sketch](sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites
+Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](https://sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites
 
 ## Getting started
 
@@ -57,7 +57,7 @@ There are a few limitations you should be aware of. **appr** is currently not ab
 
 ### Configuring Travis
 
-[Travis CI](travis-ci.org) is free for open source projects, and offers paid plans for private repositories. To get started, create an account on Travis using your GitHub login.
+[Travis CI](https://travis-ci.org) is free for open source projects, and offers paid plans for private repositories. To get started, create an account on Travis using your GitHub login.
 
 #### Add .travis.yml to your project
 Add the following to your `.travis.yml`:
@@ -75,7 +75,7 @@ If you're not already using Travis, it's advisable to run your unit tests before
 
 #### Enable Travis
 
-The final step is to enable [Travis CI](travis-ci.org) on your repository. Log into your Travis account, and turn on the build for your project in your Profile.
+The final step is to enable [Travis CI](https://travis-ci.org) on your repository. Log into your Travis account, and turn on the build for your project in your Profile.
 
 After enabled, you'll be taken to your project build page. Before triggering the first build, you'll need to add a few secure environment variables to your build under `More options > Settings`:
  - `EXP_USERNAME` - Exponent username, under which to publish the review apps. Use your main account, or create a new one for review apps. All review apps will be unlisted, so only you can see them in your app listings.
