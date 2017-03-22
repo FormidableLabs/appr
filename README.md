@@ -37,7 +37,7 @@ Or, using npm:
 Add the `appr` task to the `scripts` section of your package.json:
 ```diff
   scripts: {
-+   appr: 'appr',
++   "appr": "appr",
   }
 ```
 
