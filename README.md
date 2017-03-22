@@ -1,4 +1,27 @@
-# appr
+<h1 align="center">appr</h1>
+<p align="center">
+  <a title='License' href="https://raw.githubusercontent.com/FormidableLabs/appr/master/LICENSE" height="18">
+    <img src='https://img.shields.io/badge/license-MIT-blue.svg' />
+  </a>
+  <a href="https://badge.fury.io/js/appr">
+    <img src="https://badge.fury.io/js/appr.svg" alt="npm version" height="18">
+  </a>
+  <a href="https://travis-ci.org/FormidableLabs/appr">
+    <img src="https://travis-ci.org/FormidableLabs/appr.svg?branch=master" alt=travis" height="18">
+  </a>
+  <a href="https://circleci.com/gh/FormidableLabs/appr/tree/master">
+    <img src="https://circleci.com/gh/FormidableLabs/appr.svg?style=svg&circle-token=49dc07428a34b776b5fab9906c9f2ccdc256866a" alt="npm version" height="18">
+  </a>
+</p>
+
+<h4 align="center">
+  Automatically Deploy Pull Requests for Create React Native App and Expo
+</h4>
+<p align="center">
+  <img src="docs/demo.gif" alt="demo" width="600"></img>
+</p>
+
+***
 
 **appr builds and deploys pull requests** in your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
 
