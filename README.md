@@ -43,6 +43,8 @@ Add the `appr` task to the `scripts` section of your package.json:
 
 Next, configure one of the currently supported CI environments:
 - [Configuring Travis](#configuring-travis)
+- [Configuring Circle CI](#configuring-circle-ci)
+- [All other CIs](#configuring-other-cis)
 
 [Contributions](#contributing) for other CI platforms welcome.
 
@@ -51,17 +53,17 @@ There are a few limitations you should be aware of. **appr** is currently not ab
 
 1. React Native apps started with something other than create-react-native-app or Expo.
 2. Ejected React Native apps containing custom native module dependencies.
-3. Pull Requests from forked repositories. This is due to Travis security policies (wisely) not exposing secure environment variables to forked builds.
+3. Pull Requests from forked repositories. This is due to Travis and Circle security policies (wisely) not exposing secure environment variables to forked builds. (Circle CI allows you to disable this setting, but it is not recommended!)
 
 [Contributions](#contributing) and ideas for solutions welcome.
 
-### Configuring Travis
+## Configuring Travis
 
 [Travis CI](https://travis-ci.org) is free for open source projects, and offers paid plans for private repositories. To get started, create an account on Travis using your GitHub login.
 
 #### Add .travis.yml to your project
 Add the following to your `.travis.yml`:
-```diff
+```
 language: node_js
 node_js:
   - "node"
@@ -85,16 +87,54 @@ After enabled, you'll be taken to your project build page. Before triggering the
 
 #### Test it
 
-You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Travis build should publish the app to Expo, and finish with a comment like this one:
+You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Travis build should publish the app to Expo!
 
----
+## Configuring Circle CI
 
-:shipit: This branch has been deployed to:
-exp://exp.host/@jevakallio/crna-pull-request-preview-feature-next_test
+[Circle CI](https://circleci.com) offers one free build container for public and private repositories. To get started, create an account on Circle CI using your GitHub login.
 
-Download the [Expo](https://expo.io/) app and scan this QR code to get started!
+#### Add circle.yml to your project
+Add the following to your `circle.yml`:
+```
+dependencies:
+  override:
+    - yarn
+machine:
+  node:
+    version: 6.9
+deployment:
+  appr:
+    branch: /.*/
+    commands:
+      - 'if [ "$CI_PULL_REQUEST" != "" ]; then yarn appr; fi'
 
-![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=exp://exp.host/@jevakallio/crna-pull-request-preview-feature-next_test)
+```
+This will configure your Circle build to use the latest Node.js and Yarn (optional), and ensure that the **appr** build only runs on Pull Request builds.
+
+Circle CI will automatically run your tests before the deployment. Note that the default `test` command in `create-react-native-app` runs Jest in `--watch` mode, which will hang forever. You can either change the
+`test` script in your package.json, or, or override the test command in circle.yml:
+```
+test:
+  override:
+    - yarn ci-test-command
+```
+
+#### Enable Circle CI
+
+The final step is to enable [Circl CI](https://circleci.com) on your repository. Log into your Circle CI account, and [turn on the build for your project](https://circleci.com/add-projects).
+
+After enabled, you'll be taken to your project build page. Before triggering the first build, you'll need to add a few secure environment variables to your build under `[Gear icon] > Settings > Environment variables`:
+
+ - `EXP_USERNAME` - Exponent username, under which to publish the review apps. Use your main account, or create a new one for review apps. All review apps will be unlisted, so only you can see them in your app listings.
+ - `EXP_PASSWORD` - Exponent password for the publish user.
+ - `GITHUB_USERNAME` - A user account you want to use for posting the review app links. Use your own, or create a new "bot" account and grant them access to your repo.
+ - `GITHUB_TOKEN` - A [Personal API Token](https://github.com/blog/1509-personal-api-tokens) of the user with access to the repository. If the repository is private, the token needs to be granted the full `repo` scope. For public repositories, the `public_repo` scope is enough.
+
+Optionally, you can enable `Advanced settings > Only build pull requests` to avoid running build on branches that do not have open pull requests.
+
+#### Test it
+
+You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Circle CI build should publish the app to Expo!
 
 ## Contributing
 
