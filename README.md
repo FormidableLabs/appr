@@ -136,6 +136,11 @@ Optionally, you can enable `Advanced settings > Only build pull requests` to avo
 
 You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Circle CI build should publish the app to Expo!
 
+## Configuring other CIs
+
+If your preferred CI is not explicitly supported by _appr_, but supports building GitHub pull requests,
+you can use it by [defining environment variables as shown in the default config file](scripts/config/default.js).
+
 ## Contributing
 
 Improvements and additions welcome. For large changes, please submit a discussion issue before jumping to coding; we'd hate you to waste the effort.
