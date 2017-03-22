@@ -6,5 +6,5 @@ module.exports = {
   githubOrg: process.env.CIRCLE_PROJECT_USERNAME,
   githubRepo: process.env.CIRCLE_PROJECT_REPONAME,
   githubSourceBranch: process.env.CIRCLE_BRANCH,
-  githubPullRequestId: process.env.CIRCLE_PR_NUMBER
+  githubPullRequestId: (process.env.CI_PULL_REQUEST || '').split('/').slice(-1)[0]
 };
