@@ -9,9 +9,6 @@
   <a href="https://travis-ci.org/FormidableLabs/appr">
     <img src="https://travis-ci.org/FormidableLabs/appr.svg?branch=master" alt=travis" height="18">
   </a>
-  <a href="https://circleci.com/gh/FormidableLabs/appr/tree/master">
-    <img src="https://circleci.com/gh/FormidableLabs/appr.svg?style=svg&circle-token=49dc07428a34b776b5fab9906c9f2ccdc256866a" alt="npm version" height="18">
-  </a>
 </p>
 
 <h4 align="center">
