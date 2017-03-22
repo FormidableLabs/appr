@@ -1,0 +1,6 @@
+dependencies:
+  override:
+    - yarn
+machine:
+  node:
+    version: 6.9
