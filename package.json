@@ -6,6 +6,10 @@
   "scripts": {
     "test": "eslint scripts/"
   },
+  "engines": {
+    "node": ">= 6.4.0",
+    "npm": ">= 2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FormidableLabs/appr.git"
