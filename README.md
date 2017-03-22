@@ -73,7 +73,16 @@ script:
 ```
 This will configure your Travis build to use the latest Node.js and Yarn, and ensure that the **appr** build only runs on Pull Request builds.
 
-If you're not already using Travis, it's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **appr** step last.
+#### (Optional) Running tests
+
+If you're not already using Travis, it's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **appr** step last:
+script:
+```diff
++ - yarn ci-test-command
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
+```
+
+Note that the default `test` command in `create-react-native-app` runs Jest in `--watch` mode, which will hang forever. You can either change the `test` script in your package.json, or, or override the test command as above.
 
 #### Enable Travis
 
@@ -110,6 +119,8 @@ deployment:
 
 ```
 This will configure your Circle build to use the latest Node.js and Yarn (optional), and ensure that the **appr** build only runs on Pull Request builds.
+
+#### (Optional) Running tests
 
 Circle CI will automatically run your tests before the deployment. Note that the default `test` command in `create-react-native-app` runs Jest in `--watch` mode, which will hang forever. You can either change the
 `test` script in your package.json, or, or override the test command in circle.yml:
