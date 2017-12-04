@@ -7,7 +7,7 @@ const preDeploy = require('./scripts/pre-deploy');
 const postDeploy = require('./scripts/post-deploy');
 const localExp = './node_modules/exp/bin/exp.js';
 log('Logging into Expo...');
-spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword], loginError => {
+spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword, '--non-interactive'], loginError => {
   if (loginError) {
     throw new Error('Failed to log into Expo');
   } else {

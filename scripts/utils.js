@@ -12,8 +12,18 @@ function writePackageJSON(content) {
   fs.writeFileSync('./package.json', JSON.stringify(content, null, 2));
 }
 
+function readAppJSON() {
+  return JSON.parse(fs.readFileSync('./app.json'));
+}
+
+function writeAppJSON(content) {
+  fs.writeFileSync('./app.json', JSON.stringify(content, null, 2));
+}
+
 module.exports = {
   getExpPublishName,
   readPackageJSON,
-  writePackageJSON
+  writePackageJSON,
+  readAppJSON,
+  writeAppJSON
 };
