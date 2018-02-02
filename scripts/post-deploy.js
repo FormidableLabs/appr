@@ -4,7 +4,8 @@ const config = require('./config');
 const log = require('./log');
 module.exports = function postDeploy() {
   const expUrl = `https://expo.io/@${config.expUsername}/${utils.readPackageJSON().name}`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${expUrl}`;
+  const expUrlForQRCode = `https://exp.host/@${config.expUsername}/${utils.readPackageJSON().name}`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${expUrlForQRCode}`;
   const issueUrl = `https://${config.githubUsername}:${config.githubToken}@api.github.com/repos/${config.githubOrg}/${config.githubRepo}/issues/${config.githubPullRequestId}/comments`;
 
   log('Exponent URL', expUrl);
