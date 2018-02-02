@@ -46,7 +46,7 @@ Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](h
 
 Add appr to your project:
 ```sh
-  yarn --dev appr
+  yarn add appr -D
 ```
 
 Or, using npm:
