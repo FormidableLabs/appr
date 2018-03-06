@@ -1,5 +1,4 @@
 const utils = require('./utils');
-const config = require('./config');
 
 module.exports = function preDeploy() {
   const pkg = utils.readPackageJSON();
