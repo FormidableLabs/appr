@@ -5,6 +5,7 @@ const config = require('./scripts/config');
 const log = require('./scripts/log');
 const preDeploy = require('./scripts/pre-deploy');
 const postDeploy = require('./scripts/post-deploy');
+const getExpChannelName = require('./scripts/utils').getExpChannelName;
 const localExp = './node_modules/exp/bin/exp.js';
 log('Logging into Expo...');
 spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword, '--non-interactive'], loginError => {
@@ -17,7 +18,7 @@ spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword, '-
   }
 
   log('Publishing project into Expo.');
-  spawn(localExp, ['publish'], publishError => {
+  spawn(localExp, ['publish', '--release-channel', getExpChannelName()], publishError => {
     if (publishError) {
       throw new Error('Failed to publish package to Expo');
     } else {
