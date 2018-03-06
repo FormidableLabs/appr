@@ -20,21 +20,44 @@ module.exports = function postDeploy() {
   `;
 
   if (config.githubPullRequestId) {
-    const issueUrl = `https://${config.githubUsername}:${config.githubToken}@api.github.com/repos/${config.githubOrg}/${config.githubRepo}/issues/${config.githubPullRequestId}/comments`;
+    const issueUrl = `https://${config.githubUsername}:${config.githubToken}@api.github.com/repos/${
+      config.githubOrg
+    }/${config.githubRepo}/issues/${config.githubPullRequestId}/comments`;
+
     log('GitHub Issue URL', issueUrl);
-    request.post(
+    request.get(
       {
         url: issueUrl,
-        headers: { 'User-Agent': 'ci' },
-        body: JSON.stringify({ body })
+        headers: { 'User-Agent': 'ci' }
       },
-      (error, response) => {
-        if (error) {
-          console.error('Failed to post comment to GitHub, an error occurred', error);
-        } else if (response.statusCode >= 400) {
-          console.error('Failed to post comment to GitHub, request failed with', response);
+      (getError, getResponse) => {
+        if (getError) {
+          console.error('Failed to check comments on GitHub, an error occurred', getError);
+        } else if (getResponse.statusCode >= 400) {
+          console.error('Failed to check comments on GitHub, request failed with', getResponse);
         } else {
-          console.log(`Posted message to GitHub PR #${config.githubPullRequestId}`);
+          const comments = JSON.parse(getResponse.body);
+          if (!comments.filter(comment => comment.body === body).length) {
+            request.post(
+              {
+                url: issueUrl,
+                headers: { 'User-Agent': 'ci' },
+                body: JSON.stringify({ body })
+              },
+              (postError, postResponse) => {
+                if (postError) {
+                  console.error('Failed to post comment to GitHub, an error occurred', postError);
+                } else if (postResponse.statusCode >= 400) {
+                  console.error(
+                    'Failed to post comment to GitHub, request failed with',
+                    postResponse
+                  );
+                } else {
+                  console.log(`Posted message to GitHub PR #${config.githubPullRequestId}`);
+                }
+              }
+            );
+          }
         }
       }
     );
