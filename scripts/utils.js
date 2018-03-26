@@ -6,7 +6,7 @@ function getSafeName(name) {
 }
 
 function getExpChannelName() {
-  return getSafeName(`${process.env.EXP_CHANNEL || config.githubSourceBranch}`);
+  return getSafeName(config.expReleaseChannel);
 }
 
 function readPackageJSON() {
