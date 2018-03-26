@@ -94,7 +94,7 @@ There are a few limitations you should be aware of. **appr** is currently not ab
 
 Add the following to your `.travis.yml`:
 
-```
+```yml
 language: node_js
 node_js:
   - "node"
@@ -105,12 +105,21 @@ script:
 
 This will configure your Travis build to use the latest Node.js and Yarn, and ensure that the **appr** build only runs on Pull Request builds.
 
+#### (Optional) Pushing non-PR branches
+
+You may also want to automatically push some target branches, e.g. your `develop` or `master` branches to a release channel to test your integrated code. In that case, you can whitelist the branches to release in your `.travis.yml`:
+
+```yml
+script:
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" == "master" ]; then yarn appr; fi'
+```
+
 #### (Optional) Running tests
 
-If you're not already using Travis, it's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **appr** step last:
-script:
+It's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **appr** step last:
 
 ```diff
+script:
 + - yarn ci-test-command
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
 ```
@@ -140,7 +149,7 @@ You should now be able to create a new branch, make changes, and open a pull req
 
 Add the following to your `circle.yml`:
 
-```
+```yml
 dependencies:
   override:
     - yarn
@@ -156,12 +165,24 @@ deployment:
 
 This will configure your Circle build to use the latest Node.js and Yarn (optional), and ensure that the **appr** build only runs on Pull Request builds.
 
+#### (Optional) Pushing non-PR branches
+
+You may also want to automatically push some target branches, e.g. your `develop` or `master` branches to a release channel to test your integrated code. In that case, you can whitelist the branches to release in your `circle.yml`:
+
+```yml
+deployment:
+  appr:
+    branch: /.*/
+    commands:
+      - 'if [ "$CI_PULL_REQUEST" != "" ] || [ "$CIRCLE_BRANCH" == "master" ]; then yarn appr; fi'
+```
+
 #### (Optional) Running tests
 
 Circle CI will automatically run your tests before the deployment. Note that the default `test` command in `create-react-native-app` runs Jest in `--watch` mode, which will hang forever. You can either change the
 `test` script in your package.json, or, or override the test command in circle.yml:
 
-```
+```yml
 test:
   override:
     - yarn ci-test-command
