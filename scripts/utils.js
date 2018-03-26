@@ -1,7 +1,12 @@
 const fs = require('fs');
+const config = require('./config');
 
-function getExpPublishName(packageName, branchName) {
-  return `${packageName}-${branchName}`.replace(/[^a-zA-Z0-9\\-]/, '-');
+function getSafeName(name) {
+  return `${name}`.replace(/[^a-zA-Z0-9\\-]/, '-');
+}
+
+function getExpChannelName() {
+  return getSafeName(config.expReleaseChannel);
 }
 
 function readPackageJSON() {
@@ -21,7 +26,8 @@ function writeAppJSON(content) {
 }
 
 module.exports = {
-  getExpPublishName,
+  getSafeName,
+  getExpChannelName,
   readPackageJSON,
   writePackageJSON,
   readAppJSON,

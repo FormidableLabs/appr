@@ -1,9 +1,13 @@
 module.exports = {
-  // exponent username for publishing
+  // expo username for publishing
   expUsername: process.env.EXP_USERNAME,
 
-  // exponent password for publishing
+  // expo password for publishing
   expPassword: process.env.EXP_PASSWORD,
+
+  // expo release channel name, may be configured
+  // explicitly or defaults to source branch
+  expReleaseChannel: process.env.EXP_CHANNEL || process.env.GITHUB_SOURCE_BRANCH,
 
   // github username for posting into PR
   githubUsername: process.env.GITHUB_USERNAME,
@@ -20,7 +24,7 @@ module.exports = {
   githubRepo: process.env.GITHUB_REPO,
 
   // name of the GitHub source branch - only used for generating the
-  // exponent publish name, so if this value is not available in the
+  // expo publish name, so if this value is not available in the
   // environment, use any other branch/pr-unique string here
   githubSourceBranch: process.env.GITHUB_SOURCE_BRANCH,
 
