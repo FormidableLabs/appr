@@ -2,6 +2,17 @@ const request = require('request');
 const utils = require('./utils');
 const config = require('./config');
 const log = require('./log');
+
+function getIssueUrl() {
+  const user = config.githubUsername;
+  const token = config.githubToken;
+  const org = config.githubOrg;
+  const repo = config.githubRepo;
+  const pr = config.githubPullRequestId;
+
+  return `https://${user}:${token}@api.github.com/repos/${org}/${repo}/issues/${pr}/comments`;
+}
+
 module.exports = function postDeploy() {
   const expUrl = `https://expo.io/@${config.expUsername}/${utils.readPackageJSON().name}`;
   const expUrlForQRCode = `https://exp.host/@${config.expUsername}/${utils.readPackageJSON().name}`;
@@ -20,11 +31,9 @@ module.exports = function postDeploy() {
   `;
 
   if (config.githubPullRequestId) {
-    const issueUrl = `https://${config.githubUsername}:${config.githubToken}@api.github.com/repos/${
-      config.githubOrg
-    }/${config.githubRepo}/issues/${config.githubPullRequestId}/comments`;
-
+    const issueUrl = getIssueUrl();
     log('GitHub Issue URL', issueUrl);
+
     request.get(
       {
         url: issueUrl,
