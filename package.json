@@ -35,6 +35,6 @@
     "request": "^2.81.0"
   },
   "peerDependencies": {
-    "exp": "^48.0.2"
+    "exp": ">= 48"
   }
 }
