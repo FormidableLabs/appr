@@ -42,7 +42,7 @@ Since it was launched, I've loved Heroku's GitHub-integrated [Review Apps](https
 
 Unfortunately, a one-click workflow like this doesn't exist for mobile development. To add insult to injury, the ramp-up time to test mobile app changes on your local device can be much longer than for web applications.
 
-Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](https://sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites
+Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](https://sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites. **appr** creates a new [Expo Release Channel](https://docs.expo.io/versions/latest/guides/release-channels.html) for every PR or branch you enable it on and automatically pushes your code to the release channel on every change.
 
 ## Getting started
 
