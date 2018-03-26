@@ -8,6 +8,6 @@ module.exports = {
   githubToken: process.env.GITHUB_TOKEN,
   githubOrg: (process.env.TRAVIS_REPO_SLUG || '').split('/')[0],
   githubRepo: (process.env.TRAVIS_REPO_SLUG || '').split('/')[1],
-  githubSourceBranch: process.env.TRAVIS_PULL_REQUEST_BRANCH,
+  githubSourceBranch: process.env.TRAVIS_PULL_REQUEST_BRANCH || process.env.TRAVIS_BRANCH,
   githubPullRequestId: process.env.TRAVIS_PULL_REQUEST
 };
