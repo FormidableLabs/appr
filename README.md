@@ -22,6 +22,10 @@
 
 **appr builds and deploys pull requests** in your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
 
+### Maintenance Status: Archived
+
+This project is no longer maintained by Formidable. We are no longer responding to issues or pull requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
+
 ## Compatibility warning :warning:
 
 As of [Expo SDK 26, the Expo iOS client is no longer able to open QR codes due to Apple App Store limitations](https://blog.expo.io/upcoming-limitations-to-ios-expo-client-8076d01aee1a). We are investigating on how to adapt appr to work with newer version of Expo iOS. In the meantime, appr only works for Android testing workflows and Expo SDK versions 25 and older on iOS.
